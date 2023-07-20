@@ -11,15 +11,16 @@
 <body>
     <script src="https://unpkg.com/vue@next"></script>
     <div id="app"></div>
+
     <script>
 
         const vm = Vue.createApp({
             data() {
                 return {
-                    text: "<p>Hola Mundo de VUE JS</p>"
+                    img: "https://porsialguienpreguntaba.info/wp-content/uploads/2019/01/Dragon-Ball-Super-Broly.jpg"
                 };
             },
-            template: `<div v-html = "text"></div>`
+            template: `<img v-bind:src="img"  v-bind:alt="img">`
         }).mount('#app');
 
         console.log(vm);
