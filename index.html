@@ -17,10 +17,11 @@
         const vm = Vue.createApp({
             data() {
                 return {
+                    attr: "src",
                     img: "https://porsialguienpreguntaba.info/wp-content/uploads/2019/01/Dragon-Ball-Super-Broly.jpg"
                 };
             },
-            template: `<img v-bind:src="img"  v-bind:alt="img">`
+            template: `<img v-bind:[attr] = "img"`
         }).mount('#app');
 
         console.log(vm);
