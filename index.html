@@ -29,8 +29,7 @@
             <p>{{ text }}</p>
             <input
                 type ="text" 
-                @input="input" 
-                :value="text"
+                v-model = "text"
              />
             `
         }).mount('#app');
