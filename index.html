@@ -25,7 +25,7 @@
                     this.counter++;
                 }
             },
-            template: `<button v-on:click="increment"> {{ counter }} </button>`
+            template: `<button v-on:keyup="increment"> {{ counter }} </button>`
         }).mount('#app');
 
         console.log(vm);
