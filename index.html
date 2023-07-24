@@ -17,11 +17,15 @@
         const vm = Vue.createApp({
             data() {
                 return {
-                    attr: "src",
-                    img: "https://porsialguienpreguntaba.info/wp-content/uploads/2019/01/Dragon-Ball-Super-Broly.jpg"
+                    counter: 0
                 };
             },
-            template: `<img v-bind:[attr] = "img"`
+            methods: {
+                increment() {
+                    console.log("click!");
+                }
+            },
+            template: `<button v-on:click="increment"> {{ counter }} </button>`
         }).mount('#app');
 
         console.log(vm);
