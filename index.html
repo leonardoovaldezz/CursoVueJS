@@ -41,6 +41,20 @@
     .open {
         background-color: #b5e7a0;
     }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item {
+        border: 1px solid black;
+    }
+
+    .title {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
 </style>
 
 <body>
@@ -54,7 +68,24 @@
                 return {
                     text: "Accede a tu Cuenta",
                     open: false,
-                    username: ""
+                    username: "",
+                    post: [{
+                        title: "Titulo 1",
+                        description: "lorem ipsum..."
+                    },
+                    {
+                        title: "Titulo 2",
+                        description: "lorem ipsum..."
+                    },
+                    {
+                        title: "Titulo 3",
+                        description: "lorem ipsum..."
+                    },
+                    {
+                        title: "Titulo 4",
+                        description: "lorem ipsum..."
+                    },
+                    ]
                 };
             },
             watch: {
@@ -80,6 +111,12 @@
                 <h2>{{ text }}</h2>                
                 <div v-if="open"> 
                     <p>Hola, {{ username }}</p>
+                    <div v-for="(item, i) in post" :key="i" class="list">
+                        <div class="item">
+                            <div class="title">{{ item.title }}</div>
+                            <p>{{ item.description }}</p>
+                        </div>
+                    </div>
                 </div>
                 <div v-else>
                     <label>Username</label>
