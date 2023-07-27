@@ -63,7 +63,7 @@
 
     <script>
 
-        const vm = Vue.createApp({
+        const app = Vue.createApp({
             data() {
                 return {
                     text: "Accede a tu Cuenta",
@@ -111,11 +111,12 @@
                 <h2>{{ text }}</h2>                
                 <div v-if="open"> 
                     <p>Hola, {{ username }}</p>
-                    <div v-for="(item, i) in post" :key="i" class="list">
-                        <div class="item">
-                            <div class="title">{{ item.title }}</div>
-                            <p>{{ item.description }}</p>
-                        </div>
+                    <div class="list">
+                        <item
+                            v-for="(item, i) in post"
+                            :key = "i"
+                            :post = "item"
+                        />
                     </div>
                 </div>
                 <div v-else>
@@ -128,7 +129,19 @@
                 </button>
             </div>
             `,
-        }).mount("#app");
+        })
+
+        app.component("item", {
+            props: ["post"],
+            template: `
+            <div class="item">
+                <div class="title">{{ post.title }}</div>
+                <p>{{ post.description }}</p>
+            </div>
+            `
+        });
+
+        const vm = app.mount("#app");
         console.log(vm);
     </script>
 </body>
