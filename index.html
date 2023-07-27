@@ -19,26 +19,15 @@
                     text: "Hola Tierra"
                 }
             },
-            provide() {
-                return {
-                    otroTexto: this.text
-                };
-            },
             template: `
-                <div>{{ text }}</div>
+                <v-button :label="text"></v-button>
                 <otro />
             `
         });
 
-        app.component("otro", {
-            template: `
-                <tercer />
-            `
-        });
-
-        app.component("tercer", {
-            inject: ["otroTexto"],
-            template: `<div>{{ otroTexto }}</div>`
+        app.component("v-button", {
+            props:["label"],
+            template: `<button>{{ label }}</button>`
         });
 
         const vm = app.mount("#app");
